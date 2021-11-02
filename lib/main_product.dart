@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:nail_makeup/app/app.dart';
+import 'package:nail_makeup/app/app_config.dart';
 
 void main() {
-  runApp(MyApp());
-}
+  AppConfig.fromFlavor(flavor: Flavor.PRODUCTION);
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp();
-  }
+  runApp(Application());
 }
