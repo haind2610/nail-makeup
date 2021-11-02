@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'nm_home_screen.dart';
+import 'package:nail_makeup/app/app.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
-  }
+  runApp(Application());
 }

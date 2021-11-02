@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nail_makeup/component/nm_appbar.dart';
+import 'package:nail_makeup/localization/flutter_localizations.dart';
+import 'package:nail_makeup/localization/text_names.dart';
 import 'package:nail_makeup/theme/app_theme.dart';
 
 enum TabName {
@@ -18,16 +20,16 @@ class Tab {
   Tab(this.navigatorKey, this.icon, this.tabName);
 }
 
-class HomeScreen extends StatefulWidget {
+class NMMainScreen extends StatefulWidget {
   final TabName tabName;
 
-  HomeScreen({this.tabName = TabName.home});
+  NMMainScreen({this.tabName = TabName.home});
 
   @override
-  _HomeScreenState createState() => _HomeScreenState(tabName);
+  _NMMainScreenState createState() => _NMMainScreenState(tabName);
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _NMMainScreenState extends State<NMMainScreen> {
   final List<Tab> tabs = [
     Tab(GlobalKey<NavigatorState>(), Icon(Icons.home_outlined), TabName.home),
     Tab(GlobalKey<NavigatorState>(), Icon(Icons.shopping_bag_outlined),
@@ -41,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   TabName currentTabName;
-  _HomeScreenState(this.currentTabName);
+  _NMMainScreenState(this.currentTabName);
 
   late int _selectedIndex = 0;
 
@@ -122,7 +124,6 @@ class _HomeScreenState extends State<HomeScreen> {
     Tab selected = tabs[_selectedIndex];
     switch (selected.tabName) {
       case TabName.home:
-        // return OverviewScreen();
         return Container();
       case TabName.newsfeed:
         return Container();
@@ -139,20 +140,20 @@ class _HomeScreenState extends State<HomeScreen> {
     String? ret;
     switch (tabName) {
       case TabName.home:
-        ret = 'Trang chủ';
+        ret = NMLocalizations.of(context)!.getStringLabel(TextName.NM_001);
         break;
       case TabName.newsfeed:
-        ret = 'Khám phá';
+        ret = NMLocalizations.of(context)!.getStringLabel(TextName.NM_002);
         break;
 
       case TabName.store:
-        ret = 'Cửa hàng';
+        ret = NMLocalizations.of(context)!.getStringLabel(TextName.NM_003);
         break;
       case TabName.notifcation:
-        ret = 'Thông báo';
+        ret = NMLocalizations.of(context)!.getStringLabel(TextName.NM_004);
         break;
       case TabName.user:
-        ret = 'Người dùng';
+        ret = NMLocalizations.of(context)!.getStringLabel(TextName.NM_005);
         break;
       default:
     }
